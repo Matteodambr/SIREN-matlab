@@ -1,8 +1,25 @@
 function actorNet = SIREN_Lx3_NxXXX_stochastic(neuronNumber, actionNumber, observationNumber, omega_0)
-
-% TODO: add header
-% BUG: Check whether the neural network initialization is done again
-% outside of this function, otherwise it will be overwritten.
+% SIREN_Lx3_NxXXX_stochastic Creates a stochastic SIREN network
+%
+%   actorNet = SIREN_Lx3_NxXXX_stochastic(neuronNumber, actionNumber, observationNumber, omega_0)
+%   creates a stochastic SIREN (Sinusoidal Representation Network) with the
+%   specified number of neurons, actions, and observations. The network
+%   uses sinusoidal activation functions and is initialized with the given
+%   omega_0 scaling factor.
+%
+%   Inputs:
+%       neuronNumber      - Number of neurons in each fully connected layer
+%       actionNumber      - Number of actions (output size)
+%       observationNumber - Number of observations (input size)
+%       omega_0           - Scaling factor for the sinusoidal activation functions
+%
+%   Outputs:
+%       actorNet          - Initialized SIREN network as a dlnetwork object
+%
+%   Example:
+%       actorNet = SIREN_Lx3_NxXXX_stochastic(128, 4, 16, 30);
+%
+%   See also: dlnetwork, layerGraph, fullyConnectedLayer, functionLayer, softplusLayer
 
 lgraph = layerGraph() ;
 
