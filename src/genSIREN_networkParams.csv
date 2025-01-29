@@ -1,2 +1,0 @@
-input_features,output_features,hidden_features,hidden_layers,outermost_linear
-30,7,256,3,true
