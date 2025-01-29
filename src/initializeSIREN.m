@@ -1,4 +1,7 @@
-function sirenNet = initializeSIREN(sirenNet, firstLayerName, input_feature_number, omega_0)
+function sirenNet = initializeSIREN(sirenNet, firstLayerName, omega_0)
+
+% TODO: add header
+
 
 % Check Section 3.2 of Implicit Neural Representations with Periodic
 % Activation Functions (https://arxiv.org/abs/2006.09661) for full implementation.
@@ -17,6 +20,9 @@ for k = 1:num_learnables
 
         % Number of weights that need to be generated for the specific layer
         [rows, cols] = size(sirenNet.Learnables(k,3).Value{1}) ;
+
+        % Retrieve number of inputs to the current layer
+        input_feature_number = cols ; % W*x --> second dimension of W corresponds to the length of x, i.e. the number of inputs. 
 
         switch isFirstLayer
 

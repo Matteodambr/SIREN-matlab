@@ -1,5 +1,6 @@
 function actorNet = SIREN_Lx3_NxXXX_stochastic(neuronNumber, actionNumber, observationNumber, omega_0)
 
+% TODO: add header
 % BUG: Check whether the neural network initialization is done again
 % outside of this function, otherwise it will be overwritten.
 
@@ -39,7 +40,7 @@ lgraph = connectLayers(lgraph,"sineLayer","fc2_std") ;
 % Convert layer graph to dlnetwork
 actorNet = dlnetwork(lgraph) ;
 
-% TODO: Initialize the network
-
+% Initialize the SIREN network
+sirenNet = initializeSIREN(sirenNet, firstLayerName, observationNumber, omega_0) ;
 
 end
