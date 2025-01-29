@@ -2,7 +2,7 @@ function replaceSIRENPlaceholderFunctions()
 
 % Define the source and destination directories
 sourceDir = 'src/Aten_custom' ;
-destDir = 'src/+traced_siren_network/+ops' ;
+destDir = '+traced_siren_network/+ops' ;
 
 % List of functions to replace
 functionsToReplace = {'pyAtenSin.m'} ;

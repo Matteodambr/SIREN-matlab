@@ -3,8 +3,8 @@
 actNumber = 7 ;
 obsNumber = 30 ;
 
-addpath('Aten_custom') ;
-addpath('utils') ;
+addpath(genpath('src')) ;
+addpath(genpath('utils')) ;
 
 % Import the network from the PyTorch model file
 network = importNetworkFromPyTorch('traced_siren_network.pt') ;  % Network cannot be automatically initialized, since placeholder functions are generated. Network needs to be initialized after the functions have been replaced.
@@ -24,7 +24,7 @@ dlX1 = dlarray(inputData, 'CB') ; % 'CB' format for a single vector input
 network = initialize(network, dlX1) ;
 
 % Define the target data (dlY) for the loss function
-dlY = rand(7, 1)' ; % Replace with your target data
+dlY = rand(7, 1) ; % Replace with your target data
 
 % Test network with a forward pass
 try
@@ -58,6 +58,9 @@ end
 % Display the gradients
 disp('Gradients:');
 disp(gradients);
+
+% Summary of the network
+analyzeNetwork(network) ;
 
 % Define a dummy loss function for testing
 function [loss, gradients] = computeLoss(network, dlX1, dlY)
