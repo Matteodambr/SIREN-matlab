@@ -1,6 +1,6 @@
 function actorNet = SIREN_Lx3_NxXXX_stochastic(neuronNumber, actionNumber, observationNumber, omega_0)
 
-% TODO: Check whether the neural network initialization is done again
+% BUG: Check whether the neural network initialization is done again
 % outside of this function, otherwise it will be overwritten.
 
 lgraph = layerGraph() ;
@@ -38,5 +38,8 @@ lgraph = connectLayers(lgraph,"sineLayer","fc2_std") ;
 
 % Convert layer graph to dlnetwork
 actorNet = dlnetwork(lgraph) ;
+
+% TODO: Initialize the network
+
 
 end

@@ -1,0 +1,31 @@
+function sirenNet = initializeSIREN(sirenNet, firstLayerName)
+
+% Define how many learnable arrays are present in the network
+num_learnables = size(sirenNet.Learnables, 1) ;
+
+% Loop through each learnable array, to initialize it
+for k = 1:num_learnables
+
+    % Initialize only the weights of each layer
+    if strcmp(sirenNet.Learnables(k,2).Parameter, 'Weights')
+
+        % Check what layer is being initialized (first layer is initialized differently)
+        isFirstLayer = strcmp(sirenNet.Learnables(k,1).Parameter, firstLayerName) ;
+
+        switch isFirstLayer
+
+            case 1 % Initialization of the first layer
+
+                disp('initialized first')
+
+            case 0 % Initialization of all subsequent SIREN layers
+
+                disp('initialized others')
+
+        end
+
+    end
+
+end
+
+end
