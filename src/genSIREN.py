@@ -110,7 +110,7 @@ class Siren(nn.Module):
         return activations
 
 # Read the CSV file with input values
-df = pd.read_csv('genSIREN_input.csv', header=0)
+df = pd.read_csv('genSIREN_networkParams.csv', header=0)
 
 # Unpack variables
 input_features = df['input_features'].iloc[0]
@@ -126,5 +126,10 @@ siren_network = Siren(in_features=input_features, out_features=output_features, 
 example_input = torch.randn(1, input_features)
 traced_siren_network = torch.jit.trace(siren_network, example_input)
 
+# Example inference for debugging
+# example_output_debug = siren_network(example_input)
+# print(example_output_debug)
+
 # Save the traced SIREN network
 traced_siren_network.save('traced_siren_network.pt')
+
