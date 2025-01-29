@@ -10,6 +10,7 @@ addpath('utils') ;
 network = importNetworkFromPyTorch('traced_siren_network.pt') ;  % Network cannot be automatically initialized, since placeholder functions are generated. Network needs to be initialized after the functions have been replaced.
 
 % Replace auto-generated placeholder functions with the custom ones
+% TODO: This function must be run from the SIREN-matlab folder
 replaceSIRENPlaceholderFunctions ;
 
 % Define sample input data
