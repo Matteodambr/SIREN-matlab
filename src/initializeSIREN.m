@@ -1,10 +1,20 @@
 function sirenNet = initializeSIREN(sirenNet, firstLayerName, omega_0)
-
-% TODO: add header
-
-
-% Check Section 3.2 of Implicit Neural Representations with Periodic
-% Activation Functions (https://arxiv.org/abs/2006.09661) for full implementation.
+%INITIALIZESIREN Initialize the SIREN network with specific weights
+%   sirenNet = INITIALIZESIREN(sirenNet, firstLayerName, omega_0) initializes
+%   the weights of the SIREN network. The first layer is initialized differently
+%   from the other layers.
+%
+%   Inputs:
+%       sirenNet - The SIREN network to be initialized
+%       firstLayerName - The name of the first layer in the network
+%       omega_0 - The scaling factor for the first layer's weights
+%
+%   Outputs:
+%       sirenNet - The initialized SIREN network
+%
+%   This function follows the initialization procedure described in Section 3.2
+%   of the paper "Implicit Neural Representations with Periodic Activation
+%   Functions" (https://arxiv.org/abs/2006.09661).
 
 % Define how many learnable arrays are present in the network
 num_learnables = size(sirenNet.Learnables, 1) ;

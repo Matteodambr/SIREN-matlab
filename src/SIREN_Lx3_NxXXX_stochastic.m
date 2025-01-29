@@ -40,7 +40,7 @@ lgraph = connectLayers(lgraph,"sineLayer","fc2_std") ;
 % Convert layer graph to dlnetwork
 actorNet = dlnetwork(lgraph) ;
 
-% Initialize the SIREN network
-sirenNet = initializeSIREN(sirenNet, firstLayerName, observationNumber, omega_0) ;
+% Initialize the SIREN network with the correct weights
+actorNet = initializeSIREN(actorNet, 'fc1', omega_0) ;
 
 end
