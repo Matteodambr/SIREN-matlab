@@ -20,7 +20,28 @@ function actorNet = SIREN_Lx3_NxXXX_stochastic(neuronNumber, actionNumber, obser
 %       actorNet = SIREN_Lx3_NxXXX_stochastic(128, 4, 16, 30);
 %
 %   See also: dlnetwork, layerGraph, fullyConnectedLayer, functionLayer, softplusLayer
-
+% Network structure:
+%              +------------------+
+%              |  Input Sequence  |
+%              +------------------+
+%                      |
+%                      v
+%             +-------------------+
+%             | Feedforward Block |
+%             |   (Dense Layer)   |
+%             +-------------------+
+%                       |
+%            +----------+----------+
+%            |                     |
+%            v                     v
+%    +----------------+    +---------------+
+%    |   Mean Layers  |    |   Std Layers  |
+%    +----------------+    +---------------+
+%            |                      |
+%            v                      v
+%      +----------+            +----------+
+%      |   Mean   |            |   Std    |
+%      +----------+            +----------+
 lgraph = layerGraph() ;
 
 tempLayers = [
