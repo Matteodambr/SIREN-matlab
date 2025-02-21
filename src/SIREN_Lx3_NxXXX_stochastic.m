@@ -57,7 +57,7 @@ tempLayers = [
     fullyConnectedLayer(neuronNumber,"Name","fc3_mean")
     functionLayer(@(x)sin(x),"Name","sineLayer_3","Acceleratable",true)
     fullyConnectedLayer(actionNumber,"Name","fc4_mean")
-    functionLayer(@(x)sin(x),"Name","output_mean_sin","Acceleratable",true)] ;
+    tanhLayer("Name","output_mean_tanh")] ;
 lgraph = addLayers(lgraph,tempLayers) ;
 
 tempLayers = [
