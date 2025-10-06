@@ -5,7 +5,7 @@
 
 ![Top Language](https://img.shields.io/github/languages/top/Matteodambr/SIREN-matlab) ![GitHub contributors](https://img.shields.io/github/contributors/Matteodambr/SIREN-matlab) ![GitHub Release](https://img.shields.io/github/v/release/Matteodambr/SIREN-matlab) ![GitHub last commit](https://img.shields.io/github/last-commit/Matteodambr/SIREN-matlab) ![License](https://img.shields.io/github/license/Matteodambr/SIREN-matlab)
 
-Unofficial Matlab implementation of the SIREN network architecture found in [1].
+Unofficial Matlab implementation of the SIREN network architecture found in [1]. The networks have been adapted to be used within a Deep Reinforcement Learning framework, with a stochastic Proximal Policy Optimization actor outputting both a mean and standard deviation of each action.
 
 
 ## References
